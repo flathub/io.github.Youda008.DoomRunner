@@ -24,14 +24,14 @@ $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.fl
 
 Clone this project on your computer:
 ```shell
-$ git clone https://github.com/mbugni/DoomRunnerFlatpak.git
+$ git clone https://github.com/flathub/io.github.Youda008.DoomRunner.git
 ```
 
 ### 2 - Build and install the app
 From the project directory run the command:
 ```shell
-$ sudo flatpak-builder --verbose --install --install-deps-from=flathub --force-clean build \
-  io.github.Youda008.DoomRunner.yaml
+$ flatpak-builder --user --verbose --install --install-deps-from=flathub --force-clean \
+  build io.github.Youda008.DoomRunner.yaml
 ```
 
 See [flatpak documentation](https://docs.flatpak.org/) for more info.
@@ -66,7 +66,7 @@ Let's assume you want to use an engine with app identifier `my.app.Engine`. Reme
 #### 1 - Grant permissions
 Ensure that both the engine app and Doom Runner can access to a common folder (eg `~/doom`):
 ```shell
-$ flatpak override my.app.Engine --filesystem=$HOME/doom
+$ flatpak --user override my.app.Engine --filesystem=$HOME/doom
 ```
 
 #### 2 - Create a launcher script
@@ -79,7 +79,8 @@ exec /usr/bin/flatpak run my.app.Engine "$@"
 #### 3 - Add the engine
 Add the engine to the Doom Runner list:
 - select the file `~/doom/engine/myapp.sh` as "Executable path"
-- provide an existing "Config directory" (eg `~/doom/config`)
+- provide existing "Config directory" and "Data directory" (eg `~/doom/config`)
+- choose the proper "Engine family"
 
 #### 4 - Provide game files
 Put data files in the common folder (eg `~/doom/share`), so both Doom Runner and the engine can access them.
