@@ -19,7 +19,7 @@ Ensure you have the following commands installed on your system:
 
 Ensure you have the `flathub` repo enabled:
 ```shell
-$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+$ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 Clone this project on your computer:
@@ -37,6 +37,8 @@ $ flatpak-builder --user --verbose --install --install-deps-from=flathub --force
 See [flatpak documentation](https://docs.flatpak.org/) for more info.
 
 The first build can take a while (15 minutes or more), it depends on your machine performances. It compile and install the app, making it available for all users in your system.
+
+*NOTE:* if you want to install the app system wide, remove the `--user` option and prepend `sudo` in the above commands.
 
 ### 3 - Run the app
 You can run the Doom Runner launching it from your favorite desktop, or manually by using the `flatpak` command:
