@@ -12,8 +12,6 @@ finish-args:
   - --share=network
   # Allow to execute host engines
   - --talk-name=org.freedesktop.Flatpak
-  # Allow to access game files (eg .wad and .pk3)
-  - --filesystem=home:ro
   # Based on GZDoom
   - --env=DOOMWADDIR=/app/share/games/doom
   # Redirect the original ~/.config/gzdoom
@@ -41,7 +39,7 @@ modules:
       - type: script
         commands:
           # Use config file ${XDG_CONFIG_HOME}/gzdoom.ini
-          - exec gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 -file lights.pk3 brightmaps.pk3 -config ${XDG_CONFIG_HOME}/gzdoom.ini "$@"
+          - 'exec gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 -config ${XDG_CONFIG_HOME}/gzdoom.ini "$@"'
         dest-filename: gzdoom.sh
     build-commands:
       - install -Dm755 gzdoom.sh /app/bin/GZDoom

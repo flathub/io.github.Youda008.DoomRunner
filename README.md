@@ -56,9 +56,13 @@ $ flatpak run io.github.Youda008.DoomRunner
 Embedded GZDoom engine configs are in `~/.var/app/io.github.Youda008.DoomRunner/config/gzdoom.ini`
 
 ## Custom folders
-You can choose different folders in you `$HOME` directory for data and configs, just select them trough the "Initial setup" menu.
+If you want to use other folders outside the app directory, then you have to extend Flatpak permissions in order to access them.
+For example:
+```shell
+$ flatpak --user override io.github.Youda008.DoomRunner --filesystem=$HOME/doom
+```
+So you can choose different folders in you `$HOME` directory for data and configs, just select them trough the "Initial setup" menu.
 For example: `$HOME/doom/share` for game files and `$HOME/doom/config` for configs.
-If you want to use other folders outside your home directory, then you have to extend Flatpak permissions in order to access them.
 
 ## Advanced usage
 
