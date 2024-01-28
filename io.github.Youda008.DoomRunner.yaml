@@ -55,14 +55,12 @@ modules:
       - type: git
         url: https://github.com/Youda008/DoomRunner
         tag: v1.8.2
-      - type: file
-        path: io.github.Youda008.DoomRunner.appdata.xml
     post-install:
       # Patch desktop file using Flatpak references
       - desktop-file-edit --set-key=Exec --set-value=doomrunner.sh ../Install/XDG/DoomRunner.desktop
       - desktop-file-edit --set-icon=${FLATPAK_ID} ../Install/XDG/DoomRunner.desktop
       # Install desktop file and icons
-      - install -Dm 644 ../io.github.Youda008.DoomRunner.appdata.xml -t /app/share/appdata
+      - install -Dm 644 ../Install/XDG/io.github.Youda008.DoomRunner.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
       - install -Dm 644 ../Install/XDG/DoomRunner.desktop /app/share/applications/${FLATPAK_ID}.desktop
       - install -Dm 644 ../Install/XDG/DoomRunner.128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
 
