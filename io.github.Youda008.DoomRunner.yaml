@@ -38,8 +38,8 @@ modules:
     sources:
       - type: script
         commands:
-          # Use config file ${XDG_CONFIG_HOME}/gzdoom.ini
-          - 'exec gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 -config ${XDG_CONFIG_HOME}/gzdoom.ini "$@"'
+          # Use config file from ${XDG_CONFIG_HOME}/gzdoom.ini
+          - 'exec gzdoom +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 -config ${XDG_CONFIG_HOME}/gzdoom.ini "$@"'
         dest-filename: gzdoom.sh
     build-commands:
       - install -Dm755 gzdoom.sh /app/bin/GZDoom
