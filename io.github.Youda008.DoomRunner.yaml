@@ -20,16 +20,17 @@ finish-args:
   - --env=KDE_FULL_SESSION=false
 cleanup:
   - /include
-  - '*.a'
-  - '*.la'
+  - /lib/*.a
+  - /lib/*.la
   - /lib/pkgconfig
-  - /lib/qt5/mkspecs
-  - /share/man
+  - /lib/cmake
+  - /lib/debug
+  - /share/doc
   - /share/cmake
+  - /share/man
 modules:
 
   # Build GZDoom engine and dependencies
-  - shared-modules/SDL2/SDL2-no-libdecor.json
   - shared-modules/gzdoom/gzdoom.json
 
   # Build application from Git sources
@@ -42,7 +43,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Youda008/DoomRunner
-        tag: v1.8.2
+        tag: v1.8.3
     post-install:
       # Patch desktop file using Flatpak references
       - desktop-file-edit --set-key=Exec --set-value=doomrunner.sh ../Install/XDG/DoomRunner.desktop
