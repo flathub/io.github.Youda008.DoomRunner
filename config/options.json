@@ -39,7 +39,9 @@
     },
     "geometry": {
         "height": 800,
-        "width": 825
+        "width": 825,
+        "x": 0,
+        "y": 0
     },
     "global_options": {
         "additional_args": "",

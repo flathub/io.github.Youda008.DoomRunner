@@ -1,50 +1,8 @@
-<div>
-<img align="left" style="margin: 0px 15px 0px 0px;" src="https://raw.githubusercontent.com/Youda008/DoomRunner/master/Install/XDG/DoomRunner.64x64.png" alt="Doom Runner Icon" />
-
 # Doom Runner on Flatpak
-&nbsp;
-</div>
 
 This project contains files to build [Doom Runner](https://github.com/Youda008/DoomRunner) as a Flatpak app.
 
 The app includes the [GZDoom](https://zdoom.org/) engine to run WADs and files.
-
-## How to build the app
-
-### 1 - Prepare the environment
-Ensure you have the following commands installed on your system:
-- `git`
-- `flatpak`
-- `flatpak-builder`
-
-Ensure you have the `flathub` repo enabled:
-```shell
-$ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
-
-Clone this project on your computer:
-```shell
-$ git clone https://github.com/flathub/io.github.Youda008.DoomRunner.git
-```
-
-### 2 - Build and install the app
-From the project directory run the command:
-```shell
-$ flatpak-builder --user --verbose --install --install-deps-from=flathub --force-clean \
-  build io.github.Youda008.DoomRunner.yaml
-```
-
-See [flatpak documentation](https://docs.flatpak.org/) for more info.
-
-The first build can take a while (15 minutes or more), it depends on your machine performances. It compile and install the app, making it available for all users in your system.
-
-*NOTE:* if you want to install the app system wide, remove the `--user` option and prepend `sudo` in the above commands.
-
-### 3 - Run the app
-You can run the Doom Runner launching it from your favorite desktop, or manually by using the `flatpak` command:
-```shell
-$ flatpak run io.github.Youda008.DoomRunner
-```
 
 ## Basic usage
 - Put data files in `~/.var/app/io.github.Youda008.DoomRunner/data/share`.
