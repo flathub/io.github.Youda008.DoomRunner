@@ -52,27 +52,18 @@ modules:
       - install -Dm 644 ../Install/XDG/DoomRunner.desktop /app/share/applications/${FLATPAK_ID}.desktop
       - install -Dm 644 ../Install/XDG/DoomRunner.128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
 
-  # Create the GZDoom launcher script
-  - name: gzdoom-launcher
-    buildsystem: simple
-    sources:
-      - type: script
-        commands:
-          # Use config file from ${XDG_CONFIG_HOME}/gzdoom.ini
-          - 'exec gzdoom +fluid_patchset /app/share/games/doom/soundfonts/gzdoom.sf2 -config ${XDG_CONFIG_HOME}/gzdoom.ini "$@"'
-        dest-filename: gzdoom.sh
-    build-commands:
-      - install -Dm755 gzdoom.sh /app/bin/GZDoom
-
-  # Install DoomRunner initial configs
+  # Install DoomRunner support files
   - name: doomrunner-config
     buildsystem: simple
     sources:
       - type: dir
         path: config
+      - type: file
+        path: gzdoom.sh
     build-commands:
       - install -dm ug+rwx /app/share/config
       - install -Dm ug+rw *.json /app/share/config
+      - install -Dm755 gzdoom.sh /app/bin/GZDoom
 
   # Script for copying initial configs (if not present) and running the application
   - name: doomrunner-launcher
