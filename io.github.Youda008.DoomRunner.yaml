@@ -1,6 +1,6 @@
 app-id: io.github.Youda008.DoomRunner
 runtime: org.kde.Platform
-runtime-version: '5.15-23.08'
+runtime-version: '5.15-24.08'
 sdk: org.kde.Sdk
 command: doomrunner.sh
 finish-args:
@@ -53,30 +53,16 @@ modules:
       - install -Dm 644 ../Install/XDG/DoomRunner.128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
 
   # Install DoomRunner support files
-  - name: doomrunner-config
+  - name: doomrunner-support
     buildsystem: simple
     sources:
       - type: dir
-        path: config
-      - type: file
-        path: gzdoom.sh
+        path: sources
     build-commands:
-      - install -dm ug+rwx /app/share/config
-      - install -Dm ug+rw *.json /app/share/config
+      # Script for running GZDoom embedded engine using a default config file
       - install -Dm755 gzdoom.sh /app/bin/GZDoom
-
-  # Script for copying initial configs (if not present) and running the application
-  - name: doomrunner-launcher
-    buildsystem: simple
-    sources:
-      - type: script
-        commands:
-          - "app_config_dir=$XDG_DATA_HOME/DoomRunner"
-          - "app_share_dir=$XDG_DATA_HOME/share"
-          - "[ ! -d $app_config_dir ] && mkdir -p $app_config_dir"
-          - "[ ! -d $app_share_dir  ] && mkdir -p $app_share_dir"
-          - "[ ! -f $app_config_dir/options.json ] && envsubst < /app/share/config/options.json > $app_config_dir/options.json"
-          - "exec /app/bin/DoomRunner"
-        dest-filename: doomrunner.sh
-    build-commands:
-      - install -D doomrunner.sh /app/bin/doomrunner.sh
+      # Script for copying initial configs (if not present) and running the app
+      - install -Dm755 doomrunner.sh /app/bin/doomrunner.sh
+      # Default configuration files
+      - install -dm ug+rwx /app/share/config
+      - install -Dm ug+rw options.json /app/share/config
