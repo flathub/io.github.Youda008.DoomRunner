@@ -1,6 +1,6 @@
 app-id: io.github.Youda008.DoomRunner
 runtime: org.kde.Platform
-runtime-version: '6.8'
+runtime-version: '6.9'
 sdk: org.kde.Sdk
 command: DoomRunner
 finish-args:
@@ -37,7 +37,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Youda008/DoomRunner
-        tag: v1.9.0
+        tag: v1.9.1
     post-install:
       # Patch desktop file using Flatpak references
       - desktop-file-edit --set-icon=${FLATPAK_ID} ../Install/XDG/DoomRunner.desktop
