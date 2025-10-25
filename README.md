@@ -23,7 +23,7 @@ Choose or create a common folder where both Doom Runner and the engine can acces
 
 > [!TIP]
 >
-> For better file navigation, you can allow read/write permission on your home folder to Doom Runner.
+> For better files navigation and paths configuration, you can allow read and write permission on your home folder to Doom Runner app.
 
 #### 2. Create a launcher script
 Create a launcher script (eg `~/doom/engine/gzdoom.sh`) that can use the common folder like the following:
