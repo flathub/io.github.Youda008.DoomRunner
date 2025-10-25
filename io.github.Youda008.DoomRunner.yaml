@@ -11,7 +11,7 @@ finish-args:
   - --share=ipc
   - --share=network
   # Allow to browse game files
-  - --filesystem=home:ro
+  - --filesystem=home:rw
   # Allow to execute host engines
   - --talk-name=org.freedesktop.Flatpak
   # Simpler way of preventing KDE related errors
