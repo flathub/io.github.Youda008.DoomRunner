@@ -19,11 +19,12 @@ Install the app from Flathub:
 flatpak install flathub org.zdoom.GZDoom
 ```
 
-Choose or create a common folder where both Doom Runner and the engine can access to (eg `~/doom`).
+Create or choose a common folder where both Doom Runner and the engine can access to (eg `~/doom`).
 
 > [!TIP]
 >
-> For better files navigation and paths configuration, you can allow read and write permission on your home folder to Doom Runner app.
+> If you need to access folders outside your home directory, you should allow read and write permission for Doom Runner app on them,
+> in order to get better navigation and configuration.
 
 #### 2. Create a launcher script
 Create a launcher script (eg `~/doom/engine/gzdoom.sh`) that can use the common folder like the following:
@@ -50,11 +51,11 @@ The common folder should look like this:
 ```
 ~/doom/
 ├── config
-│   └── Default
-│       └── auto00.zds
+│   └── Default
+│       └── auto00.zds
 ├── share
-│   ├── freedoom1.wad
-│   └── freedoom2.wad
+│   ├── freedoom1.wad
+│   └── freedoom2.wad
 └── engine
     └── gzdoom.sh
 ```
