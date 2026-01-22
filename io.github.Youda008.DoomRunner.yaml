@@ -50,8 +50,8 @@ modules:
   - name: doomrunner-support
     buildsystem: simple
     sources:
-      - type: dir
-        path: sources
+      - type: file
+        path: sources/gzdoom.sh
     build-commands:
       # Warn users that previous embedded engine is no more available
       - install -Dm755 gzdoom.sh /app/bin/GZDoom
