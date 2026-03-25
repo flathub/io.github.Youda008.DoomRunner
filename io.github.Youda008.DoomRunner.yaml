@@ -37,7 +37,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Youda008/DoomRunner
-        tag: v1.9.1
+        tag: v1.9.2
     post-install:
       # Patch desktop file using Flatpak references
       - desktop-file-edit --set-icon=${FLATPAK_ID} ../Install/XDG/DoomRunner.desktop
