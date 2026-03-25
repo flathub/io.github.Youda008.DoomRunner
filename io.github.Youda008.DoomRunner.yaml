@@ -30,10 +30,14 @@ modules:
   # Build minizip
   - name: minizip-ng
     buildsystem: cmake-ninja
+    config-opts:
+      - -DBUILD_SHARED_LIBS=ON
+      - -DMZ_ZLIB=ON
     sources:
       - type: git
         url: https://github.com/zlib-ng/minizip-ng
         tag: 4.1.0
+        commit: cf4b58e17ebdcff8c6fbce1a9c3af5bf0485423c
 
   # Build application from Git sources
   - name: doomrunner-build
@@ -46,6 +50,7 @@ modules:
       - type: git
         url: https://github.com/Youda008/DoomRunner
         tag: v1.9.2
+        commit: 1592f21b7eb184e6175ce44a280d245675ebdcb1
     post-install:
       # Patch desktop file using Flatpak references
       - desktop-file-edit --set-icon=${FLATPAK_ID} ../Install/XDG/DoomRunner.desktop
