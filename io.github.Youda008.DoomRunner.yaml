@@ -27,6 +27,14 @@ cleanup:
   - /share/man
 modules:
 
+  # Build minizip
+  - name: minizip-ng
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/zlib-ng/minizip-ng
+        tag: 4.1.0
+
   # Build application from Git sources
   - name: doomrunner-build
     buildsystem: qmake
